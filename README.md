@@ -28,3 +28,5 @@ Consultez le guide `kubernetes.md` du dépôt `log430-labo5` : connexion à la g
 La remise se fait au niveau de la **Phase 2** (Labos 04 et 05), dans un espace Moodle unique. Le code de ce dépôt va dans le dossier `labo05-payment/` du zip d'équipe.
 
 Voir la section Livrables du `README.md` de `log430-labo5` pour le détail.
+
+> ⚠️ **Attention au nom du Service.** `config/krakend.json` du dépôt `log430-labo5` route vers `http://payments_api:5009`. Ce nom vient de Docker Compose et est **invalide en Kubernetes** : les underscores y sont interdits (RFC 1123). Nommez votre Service `payments-api` et mettez `krakend.json` à jour en conséquence, sinon la passerelle ne joindra jamais ce service.
